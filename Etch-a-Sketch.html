@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<link href="Etch-a-Sketch-style.css" rel="stylesheet">
+
+<head>
+  <title>Etch-a-Sketch</title>
+  <meta charset="UTF-8"/>
+</head>
+
+<body>
+  <div>
+	<button id="clearGrid" onclick="clearGrid()">Clear Grid</button>
+  </div>
+
+  <div id="container"></div>
+
+  <script>
+  const container = document.getElementById("container");
+
+	// Create the grid
+  function makeGrid(num)
+  {
+    for (var r = 0; r < num; r++)
+    {
+			for (var c = 0; c < num; c++)
+      {
+				var currentDiv = document.createElement("div");
+				currentDiv.classList.add("grid-item");
+				var gridSquarePadding = (960/(num + num)); // Calculates the value needed for the padding to fit the 960px container and fit all sqaures in with equal size.
+				gridSquarePadding = gridSquarePadding.toString() + "px"; // Concatenates the value to the string value "px"
+				currentDiv.style.padding = gridSquarePadding;
+				container.appendChild(currentDiv);
+      }
+		}
+		var gridItems = document.getElementsByClassName("grid-item");
+		gridItems.width = 960 
+		gridItems.height = 960
+  }
+  
+	// EventListener that changes the bacgkround color of the element within container to black.
+  container.addEventListener("mouseover", (e) => {
+		e.target.style.backgroundColor = "#000";
+	});
+  
+  function clearGrid() {
+		var numSquares = prompt("How many squares would you like for the sides?"); // Popup that asks them to input the number
+    numSquares = Number(numSquares); // Convert the value returned from alert to an integer as it is currently a string.
+    document.querySelectorAll(".grid-item").forEach(el => el.remove()); // "Removes all of the grid items with the class gridItem.
+		makeGrid(numSquares);
+  }
+
+  makeGrid(16);
+
+  </script>
+</body>
