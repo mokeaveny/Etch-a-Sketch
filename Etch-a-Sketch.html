@@ -40,7 +40,8 @@
   
 	// EventListener that changes the bacgkround color of the element within container to black.
   container.addEventListener("mouseover", (e) => {
-		e.target.style.backgroundColor = "#000";
+		randomColor = '#' + Math.random().toString(16).substring(9)
+		e.target.style.backgroundColor = randomColor;
 	});
   
   function clearGrid() {
