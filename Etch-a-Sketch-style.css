@@ -1,0 +1,27 @@
+#container {
+	position: relative;
+	top: 30px;
+	outline: 2px solid #000;
+	font-size: 0;
+	margin: auto;
+	height: 960px;
+	width: 960px;
+	padding: 0;
+	border: none;
+}
+
+.grid-item {
+	margin: 0;
+	border: none;
+	outline: 2px solid #000;
+	display: inline-block;
+}
+
+.fillColor {
+	background-color: #000;
+}
+
+#clearGrid {
+  margin-left: 50%;
+
+}
